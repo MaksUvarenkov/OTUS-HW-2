@@ -2,23 +2,21 @@
 #define HELLOTASK_VERSION_H
 
 
+#include <charconv>
 #include <cstdint>
+#include <sstream>
 #include <string>
 #include <vector>
-#include <sstream>
-#include <charconv>
 
 namespace otus_hw_2 {
 	class Version {
 
 	private:
-
 		uint32_t _majorVersion;
 		uint32_t _minorVersion;
 		uint32_t _buildVersion;
 
 	private:
-
 		static constexpr uint32_t VersionConversion(std::string_view majorVersion) {
 
 			uint32_t ver = 0;
@@ -31,17 +29,14 @@ namespace otus_hw_2 {
 			}
 
 			return ver;
-
 		}
 
 	public:
-
 		constexpr Version(std::string_view majorVersion, std::string_view minorVersion, std::string_view buildVersion) {
 
 			_majorVersion = VersionConversion(majorVersion);
 			_minorVersion = VersionConversion(minorVersion);
 			_buildVersion = VersionConversion(buildVersion);
-
 		}
 
 		bool operator<(const Version &another) const {
@@ -74,7 +69,6 @@ namespace otus_hw_2 {
 
 			return _majorVersion == another._majorVersion && _minorVersion == another._minorVersion &&
 				   _buildVersion == another._buildVersion;
-
 		}
 
 		friend inline std::ostream &operator<<(std::ostream &os, const Version &version);
@@ -105,7 +99,7 @@ namespace otus_hw_2 {
 		return ss.str();
 	}
 
-}
+}// namespace otus_hw_2
 
 
-#endif //HELLOTASK_VERSION_H
+#endif//HELLOTASK_VERSION_H
