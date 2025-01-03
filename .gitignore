@@ -15,7 +15,6 @@
 *.pro
 *.pro.user.*
 *.pyc
-*.pyc
 *.pyo
 *.qmlproject.user.*
 *.rec
