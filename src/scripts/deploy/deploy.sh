@@ -23,7 +23,7 @@ HW2_INSTALL_PREFIX=${HW2_DEFAULT_INSTALL_PREFIX}
 VERSION_FILE="${HW2_ROOT_DIR}"/src/versioning/Version.json
 
 # PACKAGE_NAME_PREFIX hardcoded due to Home Work requirements
-PACKAGE_NAME_PREFIX=helloworld-uvarenkov
+PACKAGE_NAME_PREFIX=ipfilter-uvarenkov
 PACKAGE_BUILD_DIR="${BUILD_DIR}"/package_build
 PACKAGE_VERSION=0.0.0
 PACKAGE_CONTROL_FILE="${HW2_ROOT_DIR}"/src/package/control.json
