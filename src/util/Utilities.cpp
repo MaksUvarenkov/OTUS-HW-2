@@ -43,7 +43,7 @@ namespace otus_hw_2 {
 	}
 
 	void
-	Utilities::HomeworkProcessor::PrintAddressesWithPresetFirstAndSecondByte(uint8_t firstByte, uint8_t secondByte) {
+	Utilities::HomeworkProcessor::PrintAddressesWithPresetFirstAndSecondByteEqualsGiven(uint8_t firstByte, uint8_t secondByte) {
 
 		for (const auto &ip: _ipPool) {
 
@@ -61,6 +61,16 @@ namespace otus_hw_2 {
 		for (const auto &ip: _ipPool) {
 
 			if (ip.AnyByteEqualsGiven(givenByte))
+				std::cout << ip << std::endl;
+		}
+
+	}
+
+	void Utilities::HomeworkProcessor::PrintAddressesWithFirstByteEqualsGiven(uint8_t firstByte) {
+
+		for (const auto &ip: _ipPool) {
+
+			if (ip.GetByteOfAddress(IpV4::ByteNumber::FIRST) == firstByte)
 				std::cout << ip << std::endl;
 		}
 

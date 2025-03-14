@@ -31,8 +31,9 @@ int main() {
 
 		processor.DoReverseLexicographySort();
 		processor.PrintSorted();
-		processor.PrintAddressesWithPresetFirstAndSecondByte(Utilities::HomeworkProcessor::HomeworkFirstByte,
-																	 Utilities::HomeworkProcessor::HomeworkSecondByte);
+		processor.PrintAddressesWithFirstByteEqualsGiven(Utilities::HomeworkProcessor::HomeworkFirstByteTheOnly);
+		processor.PrintAddressesWithPresetFirstAndSecondByteEqualsGiven(Utilities::HomeworkProcessor::HomeworkFirstByte,
+																		Utilities::HomeworkProcessor::HomeworkSecondByte);
 		processor.PrintAddressesWithAnyByteEqualsGiven(Utilities::HomeworkProcessor::HomeworkAnyByte);
 
 

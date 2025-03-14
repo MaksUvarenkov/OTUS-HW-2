@@ -22,6 +22,7 @@ namespace otus_hw_2 {
 
 		public:
 
+			static constexpr uint8_t HomeworkFirstByteTheOnly = 1;
 			static constexpr uint8_t HomeworkFirstByte = 46;
 			static constexpr uint8_t HomeworkSecondByte = 70;
 			static constexpr uint8_t HomeworkAnyByte = 46;
@@ -30,7 +31,8 @@ namespace otus_hw_2 {
 
 			void DoReverseLexicographySort();
 			void PrintSorted();
-			void PrintAddressesWithPresetFirstAndSecondByte(uint8_t firstByte, uint8_t secondByte);
+			void PrintAddressesWithFirstByteEqualsGiven(uint8_t firstByte);
+			void PrintAddressesWithPresetFirstAndSecondByteEqualsGiven(uint8_t firstByte, uint8_t secondByte);
 			void PrintAddressesWithAnyByteEqualsGiven(uint8_t givenByte);
 
 
