@@ -14,8 +14,13 @@ namespace otus_hw_2 {
 	class IpV4 : public virtual IIpAddress {
 
 		//Continue here
-		std::array<uint8_t, 4> _bytes_representation{};
-		std::string _string_repr;
+		std::array<uint8_t, 4> _bytesRepresentation{};
+		uint32_t _digitRepresentation;
+		std::string _stringRepresentation;
+
+	public:
+
+		[[nodiscard]] uint32_t GetDigitRepresentation() const override;
 
 	private:
 
@@ -28,8 +33,15 @@ namespace otus_hw_2 {
 
 	public:
 
-		IpVersion GetVersion() override { return IpVersion::V4; }
-		std::string ToString() override { return _string_repr; }
+		[[nodiscard]] IpVersion GetVersion() const override { return IpVersion::V4; }
+		[[nodiscard]] std::string ToString() const override { return _stringRepresentation; }
+
+	public:
+
+		bool operator <(const IIpAddress& another) override;
+		bool operator >(const IIpAddress& another) override;
+
+		friend std::ostream& operator<<(std::ostream& os, const IpV4& obj);
 
 	};
 
