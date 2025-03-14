@@ -35,7 +35,6 @@ namespace otus_hw_2 {
 			void PrintAddressesWithPresetFirstAndSecondByteEqualsGiven(uint8_t firstByte, uint8_t secondByte);
 			void PrintAddressesWithAnyByteEqualsGiven(uint8_t givenByte);
 
-
 		};
 
 	public:
