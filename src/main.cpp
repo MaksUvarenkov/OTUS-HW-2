@@ -1,5 +1,6 @@
 #include <iostream>
 #include <versioning/ProjectVersion.h>
+#include <util/Utilities.h>
 #include <spdlog/spdlog.h>
 
 int main() {
@@ -13,8 +14,8 @@ int main() {
 
 		for(std::string line; std::getline(std::cin, line);)
 		{
-			std::vector<std::string> v = split(line, '\t');
-			ip_pool.push_back(split(v.at(0), '.'));
+			auto expectedIpV4 = otus_hw_2::Utilities::ParseInputString(line);
+
 		}
 
 	}

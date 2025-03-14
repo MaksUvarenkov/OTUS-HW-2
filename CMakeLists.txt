@@ -57,7 +57,12 @@ endif()
 message("-- Target name: ${TARGET_EXEC_NAME}")
 message("-- Boost tests name: ${BOOST_TESTS_EXEC_NAME}")
 
-add_executable(${TARGET_EXEC_NAME} src/main.cpp)
+list(APPEND homework_SRC
+        src/ipaddr/IpV4.cpp
+        src/util/Utilities.cpp
+)
+
+add_executable(${TARGET_EXEC_NAME} src/main.cpp ${homework_SRC})
 target_include_directories(${TARGET_EXEC_NAME} PRIVATE src include)
 
 set(TARGET_LIST ${TARGET_EXEC_NAME})
