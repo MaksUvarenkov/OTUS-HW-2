@@ -63,14 +63,11 @@ namespace otus_hw_2 {
 	}
 
 	bool IpV4::operator<(const IIpAddress &another) {
-
 		return _digitRepresentation < another.GetDigitRepresentation();
 	}
 
 	bool IpV4::operator>(const IIpAddress &another) {
-
 		return _digitRepresentation > another.GetDigitRepresentation();
-
 	}
 
 	uint32_t IpV4::GetDigitRepresentation() const {
