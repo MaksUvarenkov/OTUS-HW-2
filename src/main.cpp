@@ -9,7 +9,6 @@ using namespace otus_hw_2;
 int main() {
 
 	spdlog::set_level(spdlog::level::err);
-
 	spdlog::info("Hello, I am OTUS-HW-2!");
 	spdlog::info("Version is: [{}]", to_string(ProjectVersion::GetVersion()));
 
@@ -36,12 +35,10 @@ int main() {
 																		Utilities::HomeworkProcessor::HomeworkSecondByte);
 		processor.PrintAddressesWithAnyByteEqualsGiven(Utilities::HomeworkProcessor::HomeworkAnyByte);
 
-
 	}
 	catch (const std::exception &ex) {
 		spdlog::error("Failed to process given input. Closing. Due to: [{}]", ex.what());
 	}
-
 
 	return 0;
 }
