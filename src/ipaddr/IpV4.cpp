@@ -1,5 +1,8 @@
 #include <algorithm>
-#include "IpV4.h"
+#include <ipaddr/IpV4.h>
+
+#include <vector>
+#include <sstream>
 
 namespace otus_hw_2 {
 
@@ -51,10 +54,10 @@ namespace otus_hw_2 {
 		std::string part;
 		std::istringstream iss(expectedIp);
 
-		auto locator = _bytesRepresentation.begin();
+		auto pos = 0;
 		while (std::getline(iss, part, '.')) {
 			parts.push_back(part);
-			*locator = std::stoi(part);
+			_bytesRepresentation[pos++] = std::stoi(part);
 			_digitRepresentation = (_digitRepresentation << 8) | static_cast<uint8_t>(std::stoi(part));
 		}
 	}
@@ -76,6 +79,14 @@ namespace otus_hw_2 {
 
 	std::ostream &operator<<(std::ostream &os, const IpV4 &obj) {
 		return os << obj._stringRepresentation;
+	}
+
+	bool IpV4::AnyByteEqualsGiven(uint8_t given) const {
+
+		return std::ranges::any_of(_bytesRepresentation, [given](int byte) {
+			return byte == given;
+		});
+
 	}
 
 } // otus_hw_2

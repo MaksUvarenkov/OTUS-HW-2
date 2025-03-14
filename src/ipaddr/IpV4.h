@@ -7,7 +7,6 @@
 #include <charconv>
 
 #include <ipaddr/IIpAddress.h>
-#include <util/Utilities.h>
 
 namespace otus_hw_2 {
 
@@ -35,6 +34,24 @@ namespace otus_hw_2 {
 
 		[[nodiscard]] IpVersion GetVersion() const override { return IpVersion::V4; }
 		[[nodiscard]] std::string ToString() const override { return _stringRepresentation; }
+		[[nodiscard]] bool AnyByteEqualsGiven(uint8_t given) const;
+
+	public:
+
+		enum class ByteNumber : uint8_t {
+
+			FIRST = 0 ,
+			SECOND = 1,
+			THIRD = 2,
+			FOURTH = 3
+
+		};
+
+		[[nodiscard]] uint8_t GetByteOfAddress(ByteNumber position) const {
+
+			return _bytesRepresentation[static_cast<uint8_t>(position)];
+
+		}
 
 	public:
 

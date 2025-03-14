@@ -4,21 +4,22 @@
 #include <util/Utilities.h>
 #include <spdlog/spdlog.h>
 
+using namespace otus_hw_2;
+
 int main() {
 
 	spdlog::set_level(spdlog::level::err);
 
 	spdlog::info("Hello, I am OTUS-HW-2!");
-	spdlog::info("Version is: [{}]", to_string(otus_hw_2::ProjectVersion::GetVersion()));
+	spdlog::info("Version is: [{}]", to_string(ProjectVersion::GetVersion()));
 
 	try {
 
-		std::vector<otus_hw_2::IpV4> ip_pool;
+		std::vector<IpV4> ip_pool;
 
-		for(std::string line; std::getline(std::cin, line);)
-		{
+		for (std::string line; std::getline(std::cin, line);) {
 			try {
-				auto expectedIpV4 = otus_hw_2::Utilities::ParseInputString(line);
+				auto expectedIpV4 = Utilities::ParseInputString(line);
 				ip_pool.emplace_back(expectedIpV4);
 			}
 			catch (const std::exception &ex) {
@@ -26,13 +27,14 @@ int main() {
 			}
 		}
 
-		std::sort(ip_pool.begin(), ip_pool.end(), std::greater<>());
+		Utilities::HomeworkProcessor processor(ip_pool);
 
-		for (const auto &ip : ip_pool ){
+		processor.DoReverseLexicographySort();
+		processor.PrintSorted();
+		processor.PrintAddressesWithPresetFirstAndSecondByte(Utilities::HomeworkProcessor::HomeworkFirstByte,
+																	 Utilities::HomeworkProcessor::HomeworkSecondByte);
+		processor.PrintAddressesWithAnyByteEqualsGiven(Utilities::HomeworkProcessor::HomeworkAnyByte);
 
-			std::cout << ip << std::endl;
-
-		}
 
 	}
 	catch (const std::exception &ex) {
