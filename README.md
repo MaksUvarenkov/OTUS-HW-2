@@ -20,5 +20,6 @@ text 1 contains ip address itself.
 Really gives
 24e7a7b2270daee89c64d3ca5fb3da1a -
 2) GTest also check it. See TEST(CinTest, ReadInputFromFile)
+3) CodeStyle checked during build (GitHub Actions)
 
 
