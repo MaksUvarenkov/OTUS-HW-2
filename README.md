@@ -1,6 +1,6 @@
 # OTUS Home Work 2.
-1. Introducing ip_filter that works with respect to the HW requirements in 
-https://otusbook.notion.site/2-IP-b0a89c0d1428422ea9446a9769ba6ffb
+1. Introducing ip_filter that works with respect to the HW requirements in
+   https://otusmetodist.yonote.ru/share/2cb07ace-75b1-48fe-b6fd-259b39f6025a/doc/2-filtraciya-ip-adresov-s8zT8mUKCH
 2. Implements build-system as in the first HomeWork.
 
 ## How Ip Filter works
@@ -14,3 +14,11 @@ text 1 contains ip address itself.
 6) Then all addresses with the first byte equals "46" and second one equals "70". Order is the same as previous one
 7) Then all addresses which has any byte equals "46". Order is the same as previous one
  
+
+## How To
+1) Command cat ip_filter.tsv | ip_filter | md5sum
+Really gives
+24e7a7b2270daee89c64d3ca5fb3da1a -
+2) GTest also check it. See TEST(CinTest, ReadInputFromFile)
+
+
