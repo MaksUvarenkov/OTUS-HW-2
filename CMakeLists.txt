@@ -10,6 +10,11 @@ if (CMAKE_COMPILER_IS_GNUCXX AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS 13.1)
     message(FATAL_ERROR "Require at least gcc-13.1")
 endif()
 
+enable_testing()
+find_package(GTest REQUIRED)
+add_subdirectory(src/tests)
+
+
 set(DEFAULT_PROJECT_VERSION_MAJOR 1)
 set(DEFAULT_PROJECT_VERSION_MINOR 119)
 
