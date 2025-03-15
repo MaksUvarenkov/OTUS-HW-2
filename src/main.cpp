@@ -1,8 +1,8 @@
 #include <iostream>
-#include <versioning/ProjectVersion.h>
 #include <ipaddr/IpV4.h>
-#include <util/Utilities.h>
 #include <spdlog/spdlog.h>
+#include <util/Utilities.h>
+#include <versioning/ProjectVersion.h>
 
 using namespace otus_hw_2;
 
@@ -20,8 +20,7 @@ int main() {
 			try {
 				auto expectedIpV4 = Utilities::ParseInputString(line);
 				ip_pool.emplace_back(expectedIpV4);
-			}
-			catch (const std::exception &ex) {
+			} catch (const std::exception &ex) {
 				spdlog::error("Can not transform given string to IPV4. String: [{}]", line);
 			}
 		}
@@ -35,8 +34,7 @@ int main() {
 																		Utilities::HomeworkProcessor::HomeworkSecondByte);
 		processor.PrintAddressesWithAnyByteEqualsGiven(Utilities::HomeworkProcessor::HomeworkAnyByte);
 
-	}
-	catch (const std::exception &ex) {
+	} catch (const std::exception &ex) {
 		spdlog::error("Failed to process given input. Closing. Due to: [{}]", ex.what());
 	}
 

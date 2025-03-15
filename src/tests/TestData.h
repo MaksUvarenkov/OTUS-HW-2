@@ -1007,13 +1007,9 @@ namespace GTests {
 													  "67.183.105.87\t1\t0\n"
 													  "91.64.189.196\t0\t2\n"
 													  "93.179.90.82\t74\t0";
-
-
 	};
 
-}
+}// namespace GTests
 
 
-
-
-#endif //IP_FILTER_TESTDATA_H
+#endif//IP_FILTER_TESTDATA_H

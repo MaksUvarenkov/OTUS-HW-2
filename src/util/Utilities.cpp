@@ -1,9 +1,9 @@
 #include "Utilities.h"
 #include "spdlog/spdlog.h"
 
-#include <utility>
 #include <algorithm>
 #include <iostream>
+#include <utility>
 
 namespace otus_hw_2 {
 
@@ -27,13 +27,12 @@ namespace otus_hw_2 {
 			}
 		}
 
-		return parts[0];
+		return parts[ 0 ];
 	}
 
 	void Utilities::HomeworkProcessor::DoReverseLexicographySort() {
 
 		std::sort(_ipPool.begin(), _ipPool.end(), std::greater<>());
-
 	}
 
 	void Utilities::HomeworkProcessor::PrintSorted() {
@@ -53,7 +52,6 @@ namespace otus_hw_2 {
 			if (firstByteOfAddr == firstByte && secondByteOfAddr == secondByte)
 				std::cout << ip << std::endl;
 		}
-
 	}
 
 	void Utilities::HomeworkProcessor::PrintAddressesWithAnyByteEqualsGiven(uint8_t givenByte) {
@@ -63,7 +61,6 @@ namespace otus_hw_2 {
 			if (ip.AnyByteEqualsGiven(givenByte))
 				std::cout << ip << std::endl;
 		}
-
 	}
 
 	void Utilities::HomeworkProcessor::PrintAddressesWithFirstByteEqualsGiven(uint8_t firstByte) {
@@ -73,6 +70,5 @@ namespace otus_hw_2 {
 			if (ip.GetByteOfAddress(IpV4::ByteNumber::FIRST) == firstByte)
 				std::cout << ip << std::endl;
 		}
-
 	}
-} // otus_hw_2
+}// namespace otus_hw_2

@@ -1,24 +1,24 @@
 #include <gtest/gtest.h>
 
-#include <openssl/md5.h>  // Для MD5
-#include <sstream>
 #include <iomanip>
 #include <iostream>
+#include <openssl/md5.h>// Для MD5
+#include <sstream>
 
-#include <ipaddr/IpV4.h>
-#include <util/Utilities.h>
-#include <tests/TestData.h>
-#include <fstream>
 #include "spdlog/spdlog.h"
+#include <fstream>
+#include <ipaddr/IpV4.h>
+#include <tests/TestData.h>
+#include <util/Utilities.h>
 
 
-std::string CalculateMD5(const std::string& input) {
-	unsigned char digest[MD5_DIGEST_LENGTH];
-	MD5((unsigned char*)input.c_str(), input.size(), digest);
+std::string CalculateMD5(const std::string &input) {
+	unsigned char digest[ MD5_DIGEST_LENGTH ];
+	MD5((unsigned char *) input.c_str(), input.size(), digest);
 
 	std::stringstream ss;
-	for (unsigned char i : digest) {
-		ss << std::hex << std::setw(2) << std::setfill('0') << (int)i;
+	for (unsigned char i: digest) {
+		ss << std::hex << std::setw(2) << std::setfill('0') << (int) i;
 	}
 	return ss.str();
 }
@@ -30,7 +30,7 @@ TEST(MyProjectTest, BasicTest) {
 
 TEST(CinTest, ReadInputFromFile) {
 
-	std::streambuf* origCin = std::cin.rdbuf();
+	std::streambuf *origCin = std::cin.rdbuf();
 
 	std::ofstream testFile("test_input.txt");
 	testFile << GTests::TestData::TestInput;
@@ -46,8 +46,7 @@ TEST(CinTest, ReadInputFromFile) {
 		try {
 			auto expectedIpV4 = otus_hw_2::Utilities::ParseInputString(line);
 			ip_pool.emplace_back(expectedIpV4);
-		}
-		catch (const std::exception &ex) {
+		} catch (const std::exception &ex) {
 			spdlog::error("Can not transform given string to IPV4. String: [{}]", line);
 		}
 	}

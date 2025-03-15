@@ -13,18 +13,13 @@ enum class IpVersion {
 struct IIpAddress {
 
 public:
-
 	virtual IpVersion GetVersion() const = 0;
 	virtual std::string ToString() const = 0;
 	[[nodiscard]] virtual uint32_t GetDigitRepresentation() const = 0;
 
-	virtual bool operator <(const IIpAddress& another) = 0;
-	virtual bool operator >(const IIpAddress& another) = 0;
-
-
+	virtual bool operator<(const IIpAddress &another) = 0;
+	virtual bool operator>(const IIpAddress &another) = 0;
 };
 
 
-
-
-#endif //IP_FILTER_IIPADDRESS_H
+#endif//IP_FILTER_IIPADDRESS_H

@@ -1,18 +1,18 @@
 #include <algorithm>
 #include <ipaddr/IpV4.h>
 
-#include <vector>
 #include <sstream>
+#include <vector>
 
 namespace otus_hw_2 {
 
-	bool IpV4::IsNumber(const std::string& str) {
+	bool IpV4::IsNumber(const std::string &str) {
 		return !str.empty() && std::all_of(str.begin(), str.end(), [](char ch) {
 			return std::isdigit(ch);
 		});
 	}
 
-	bool IpV4::IsValidIPv4(const std::string& ip) {
+	bool IpV4::IsValidIPv4(const std::string &ip) {
 		std::vector<std::string> parts;
 		std::string part;
 		std::istringstream iss(ip);
@@ -25,13 +25,12 @@ namespace otus_hw_2 {
 			return false;
 		}
 
-		return std::ranges::all_of(parts, [](const std::string& part){
-
+		return std::ranges::all_of(parts, [](const std::string &part) {
 			if (!IsNumber(part)) {
 				return false;
 			}
 
-			if (part.size() > 1 && part[0] == '0') {
+			if (part.size() > 1 && part[ 0 ] == '0') {
 				return false;
 			}
 
@@ -40,7 +39,6 @@ namespace otus_hw_2 {
 				return false;
 			}
 			return true;
-
 		});
 	}
 
@@ -57,7 +55,7 @@ namespace otus_hw_2 {
 		auto pos = 0;
 		while (std::getline(iss, part, '.')) {
 			parts.push_back(part);
-			_bytesRepresentation[pos++] = std::stoi(part);
+			_bytesRepresentation[ pos++ ] = std::stoi(part);
 			_digitRepresentation = (_digitRepresentation << 8) | static_cast<uint8_t>(std::stoi(part));
 		}
 	}
@@ -80,10 +78,9 @@ namespace otus_hw_2 {
 
 	bool IpV4::AnyByteEqualsGiven(uint8_t given) const {
 
-		return std::ranges::any_of(_bytesRepresentation, [given](int byte) {
+		return std::ranges::any_of(_bytesRepresentation, [ given ](int byte) {
 			return byte == given;
 		});
-
 	}
 
-} // otus_hw_2
+}// namespace otus_hw_2
