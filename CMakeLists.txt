@@ -70,6 +70,9 @@ list(APPEND homework_SRC
 add_executable(${TARGET_EXEC_NAME} src/main.cpp ${homework_SRC})
 target_include_directories(${TARGET_EXEC_NAME} PRIVATE src include)
 
+add_library(checker_lib STATIC ${homework_SRC})
+target_include_directories(checker_lib PUBLIC src ${CMAKE_SOURCE_DIR}/include)
+
 set(TARGET_LIST ${TARGET_EXEC_NAME})
 
 if (DEFINED HW2_INSTALL_PREFIX)
